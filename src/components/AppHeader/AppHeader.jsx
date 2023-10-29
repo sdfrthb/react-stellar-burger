@@ -14,14 +14,19 @@ export default function AppHeader() {
       <div className={styles.wrapper}>
         <nav className={styles.navigation}>
           <ul className={styles.nav_list}>
-            <NavItem isOpen={true} icon={<BurgerIcon type='primary' />}>Конструктор</NavItem>
-            <NavItem icon={<ListIcon type='secondary' />}>Лента заказов</NavItem>
+            <NavItem isOpen={true} icon={<BurgerIcon type="primary" />}>
+              Конструктор
+            </NavItem>
+            <NavItem icon={<ListIcon type="secondary" />}>
+              Лента заказов
+            </NavItem>
             <Logo />
-            <NavItem icon={<ProfileIcon type='secondary' />}>Личный кабинет</NavItem>
+            <NavItem icon={<ProfileIcon type="secondary" />}>
+              Личный кабинет
+            </NavItem>
           </ul>
         </nav>
       </div>
     </header>
-  )
+  );
 }
-

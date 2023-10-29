@@ -9,11 +9,11 @@
 }
 
 .typeWrapper::-webkit-scrollbar {
-	width: 8px;
+  width: 8px;
 }
 .typeWrapper::-webkit-scrollbar-track {
-	background: #2F2F37;
+  background: #2f2f37;
 }
 .typeWrapper::-webkit-scrollbar-thumb {
-	background: #8585AD;
+  background: #8585ad;
 }
