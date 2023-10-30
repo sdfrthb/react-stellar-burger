@@ -1,0 +1,19 @@
+.ingredients_section {
+  max-width: 600px;
+}
+
+.type_wrapper {
+  display: grid;
+  height: calc(100vh - 88px);
+  overflow: scroll;
+}
+
+.typeWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.typeWrapper::-webkit-scrollbar-track {
+  background: #2f2f37;
+}
+.typeWrapper::-webkit-scrollbar-thumb {
+  background: #8585ad;
+}

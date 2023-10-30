@@ -1,0 +1,26 @@
+.item {
+  width: 272px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+}
+
+.image {
+  width: 240px;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.name {
+  min-height: 48px;
+  text-align: center;
+}
