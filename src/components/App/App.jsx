@@ -49,7 +49,6 @@ function App() {
         setIngredients(apiData.data);
       })
       .catch(console.error);
-    setIngredients(data);
   }, []);
 
   return (
