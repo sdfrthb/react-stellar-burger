@@ -1,14 +1,12 @@
-.item_wrapper {
-  display: flex;
-  gap: calc(var(--offset-base-size) * 2);
-  align-items: center;
+.start {
+  text-align: center;
 }
 
 .taste_wrapper {
   display: flex;
   gap: calc(var(--offset-base-size) * 4);
   flex-direction: column;
-  max-height: calc(100vh - 350px);
+  height: calc(100vh - 350px);
 }
 
 .items {

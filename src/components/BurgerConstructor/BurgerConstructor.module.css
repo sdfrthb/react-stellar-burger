@@ -6,6 +6,12 @@
   flex-direction: column;
 }
 
+.oder_empty {
+  max-width: 600px;
+  padding: 100px 0 52px;
+  color:red
+}
+
 .wrapper {
   display: flex;
   gap: 40px;

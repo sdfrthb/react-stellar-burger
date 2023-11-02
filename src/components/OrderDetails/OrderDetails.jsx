@@ -1,8 +1,11 @@
 import styles from "./OrderDetails.module.css";
 import doneImage from "../../images/done.png";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { oderIdSelector } from "../../services/selectors/orderSelector";
 
-function OrderDetails({ id }) {
+function OrderDetails() {
+  const id = useSelector(oderIdSelector)
+  console.log(id)
   return (
     <div className={styles.container}>
       <span className="text text_type_digits-large mt-4 mb-8">{id}</span>
@@ -17,9 +20,5 @@ function OrderDetails({ id }) {
     </div>
   );
 }
-
-OrderDetails.propTypes = {
-  id: PropTypes.string,
-};
 
 export default OrderDetails;

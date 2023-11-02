@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 
 const modalRoot = document.getElementById("react-modals");
 
-export default function Modal({ children, heading }) {
-  const { onClose } = children.props;
+export default function Modal({ children, heading, onClose }) {
+
   useEffect(() => {
     const handleCloseByEsc = (event) => {
       if (event.key === "Escape") onClose();
