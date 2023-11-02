@@ -6,6 +6,7 @@ import {
 } from "../../services/selectors/constructorSelector";
 import { useSelector } from "react-redux";
 import TasteItem from "../TasteItem/TasteItem";
+import React from "react";
 
 function BurgerTaste() {
   const bun = useSelector(bunSelector);
@@ -29,9 +30,11 @@ function BurgerTaste() {
             extraClass={`ml-8`}
           />
           <div className={styles.items}>
-            {fillings.map((item, index) => (
-              <TasteItem key={item._customid} index={index} item={item} />
-            ))}
+            {fillings.map((item, index) => {
+               return (<React.Fragment key={item._customId}>
+                <TasteItem index={index} item={item}/>
+               </React.Fragment>)
+            })}
           </div>
           <ConstructorElement
             type="bottom"

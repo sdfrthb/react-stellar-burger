@@ -13,9 +13,10 @@ import {
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import { ingredientPropType } from "../../utils/prop-types";
 
-function TasteItem({ item, index, key }) {
+function TasteItem({ item, index }) {
   const fillings = useSelector(fillingsSelector);
   const dispatch = useDispatch();
+  // console.log(key)
   const [, dragRef] = useDrag({
     type: "sort",
     item: { ingredient: item },

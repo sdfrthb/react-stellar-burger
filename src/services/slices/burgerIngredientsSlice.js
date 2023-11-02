@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getData } from '../../utils/api';
 
-const baseUrl = "https://norma.nomoreparties.space/api";
-
 export const fetchIngredients = createAsyncThunk(
   "ingredients/get", getData
 );
@@ -26,7 +24,6 @@ const burgerIngredientsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchIngredients.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.ingredientsArray = action.payload;
         state.isLoading = false;
         state.error = '';

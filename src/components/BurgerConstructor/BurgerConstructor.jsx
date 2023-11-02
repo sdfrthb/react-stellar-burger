@@ -10,24 +10,23 @@ import { v4 as uuidv4 } from "uuid";
 import { addIngredient } from "../../services/slices/constructorSlice";
 import {
   allIdSelector,
+  bunSelector,
   priceSelector,
 } from "../../services/selectors/constructorSelector";
 import { createNewOrder } from "../../services/slices/orderSlice";
 import { openModal } from "../../services/slices/modalSlice";
-import { orderLoadSelector } from "../../services/selectors/orderSelector";
+
 
 function BurgerConstructor() {
   const dispatch = useDispatch();
   const price = useSelector(priceSelector);
-  const oderLoading = useSelector(orderLoadSelector);
-  const allId = useSelector(allIdSelector)
+
+  const allId = useSelector(allIdSelector);
+  const bun = useSelector(bunSelector);
 
   const onOder = () => {
-    console.log(allId)
     dispatch(createNewOrder({ ingredients: allId }));
-    if (!oderLoading) {
-      dispatch(openModal("orderDetails"));
-    }
+    dispatch(openModal("orderDetails"));
   };
 
   const [, dropRef] = useDrop({
@@ -40,7 +39,7 @@ function BurgerConstructor() {
 
   return (
     <section className={styles.oder} ref={dropRef}>
-      <BurgerTaste></BurgerTaste>
+      <BurgerTaste />
       <div className={`${styles.wrapper} mr-4 ml-4`}>
         <span
           className={`${styles.price_wrapper} text text_type_digits-medium`}
@@ -48,9 +47,25 @@ function BurgerConstructor() {
           {price}
           <CurrencyIcon type="primary" />
         </span>
-        <Button htmlType="button" type="primary" size="large" onClick={onOder}>
-          Оформить заказ
-        </Button>
+        {bun ? (
+          <Button
+            htmlType="button"
+            type="primary"
+            size="large"
+            onClick={onOder}
+          >
+            Оформить заказ
+          </Button>
+        ) : (
+          <Button
+            htmlType="button"
+            type="primary"
+            size="large"
+            disabled
+          >
+            Оформить заказ
+          </Button>
+        )}
       </div>
     </section>
   );

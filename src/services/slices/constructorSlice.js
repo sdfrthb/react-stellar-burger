@@ -10,6 +10,7 @@ const constructorSlice = createSlice({
   initialState,
   reducers: {
     addIngredient: (state, action) => {
+      console.log(action.payload)
       if (action.payload.type === "bun") {
         state.bun = action.payload;
       } else {
