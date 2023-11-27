@@ -1,48 +1,53 @@
 import styles from "./BurgerTaste.module.css";
+import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 import {
-  ConstructorElement,
-  DragIcon,
-} from "@ya.praktikum/react-developer-burger-ui-components";
-import PropTypes from "prop-types";
+  bunSelector,
+  fillingsSelector,
+} from "../../services/selectors/constructorSelector";
+import { useSelector } from "react-redux";
+import TasteItem from "../TasteItem/TasteItem";
+import React from "react";
 
-function BurgerTaste(props) {
-  const { bun, fillings } = props.ingredients;
+function BurgerTaste() {
+  const bun = useSelector(bunSelector);
+  const fillings = useSelector(fillingsSelector);
+
   return (
     <div className={styles.taste_wrapper}>
-      <ConstructorElement
-        type="top"
-        isLocked={true}
-        text={`${bun.name}(верх)`}
-        price={bun.price}
-        thumbnail={bun.image}
-        extraClass={`ml-8`}
-      />
-      <div className={styles.items}>
-        {fillings.map((item) => (
-          <div key={item._id} className={styles.item_wrapper}>
-            <DragIcon />
-            <ConstructorElement
-              text={item.name}
-              price={item.price}
-              thumbnail={item.image}
-            />
+      {!bun ? (
+        <span className={`${styles.start} text_type_main-large`}>
+          Добавьте булочку
+        </span>
+      ) : (
+        <>
+          {" "}
+          <ConstructorElement
+            type="top"
+            isLocked={true}
+            text={`${bun.name}(верх)`}
+            price={bun.price}
+            thumbnail={bun.image}
+            extraClass={`ml-8`}
+          />
+          <div className={styles.items}>
+            {fillings.map((item, index) => {
+               return (<React.Fragment key={item._customId}>
+                <TasteItem index={index} item={item}/>
+               </React.Fragment>)
+            })}
           </div>
-        ))}
-      </div>
-      <ConstructorElement
-        type="bottom"
-        isLocked={true}
-        text={`${bun.name}(низ)`}
-        price={bun.price}
-        thumbnail={bun.image}
-        extraClass={`ml-8`}
-      />
+          <ConstructorElement
+            type="bottom"
+            isLocked={true}
+            text={`${bun.name}(низ)`}
+            price={bun.price}
+            thumbnail={bun.image}
+            extraClass={`ml-8`}
+          />{" "}
+        </>
+      )}
     </div>
   );
 }
-
-BurgerTaste.propTypes = {
-  ingredients: PropTypes.object,
-};
 
 export default BurgerTaste;

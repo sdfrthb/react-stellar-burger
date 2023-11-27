@@ -8,12 +8,13 @@
   overflow: scroll;
 }
 
-.typeWrapper::-webkit-scrollbar {
+
+.type_wrapper::-webkit-scrollbar {
   width: 8px;
 }
-.typeWrapper::-webkit-scrollbar-track {
-  background: #2f2f37;
+.type_wrapper::-webkit-scrollbar-track {
+  background: var(--background-element);
 }
-.typeWrapper::-webkit-scrollbar-thumb {
-  background: #8585ad;
+.type_wrapper::-webkit-scrollbar-thumb {
+  background: var(--text-inactive-color);
 }
